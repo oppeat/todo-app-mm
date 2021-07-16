@@ -3,10 +3,10 @@ import { Button, Input, Checkbox } from "semantic-ui-react";
 import { observer } from "mobx-react";
 import todoModel from "../model/todoModel";
 
-function TodoListItems() {
+function CompleteListItems() {
     return (
         <div>
-            {todoModel.todosPending.length > 0 ? (todoModel.todosPending.map((todo: { id: number; text: string, done: boolean }) => (
+            {todoModel.todosComplete.length > 0 ? (todoModel.todosComplete.map((todo: { id: number; text: string, done: boolean }) => (
                 <div key={todo.id}>
                     <Checkbox onClick={() => (todoModel.changeStatusTodo(todo.id, !todo.done))} checked={todo.done} />
                     <Input value={todo.text} onChange={(evt) => (todoModel.editTextTodo(todo.id, evt.target.value))} />
@@ -15,18 +15,18 @@ function TodoListItems() {
                     }}>Delete</Button>
                 </div>
             ))) : (
-                'Nothing to do next - add one :)'
+                'Complete something or you are doing nothing :('
             )}
         </div>
     );
 }
 
-const ObservedTodoListItems = observer(TodoListItems);
+const ObservedCompleteListItems = observer(CompleteListItems);
 
-function TodoList() {
+function TodoComplete() {
     return (
-        <ObservedTodoListItems />
+        <ObservedCompleteListItems />
     );
 }
 
-export default TodoList;
+export default TodoComplete;

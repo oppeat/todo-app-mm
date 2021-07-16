@@ -1,4 +1,4 @@
-import { makeAutoObservable, action } from "mobx";
+import { makeAutoObservable, action, computed } from "mobx";
 
 interface Todo {
   id: number;
@@ -41,6 +41,14 @@ class Todos {
   }
   @action setNewTodo(val: string) {
     this.newTodo = val
+  }
+
+  @computed get todosPending(){
+    return this.todos.filter(todo => !todo.done)
+  }
+
+  @computed get todosComplete(){
+    return this.todos.filter(todo => todo.done)
   }
 
   editTextTodo(id: number,text:string) {

@@ -4,6 +4,7 @@ import './App.css';
 import 'semantic-ui-css/semantic.min.css';
 import TodoList from "./components/TodoList";
 import TodoAdd from "./components/TodoAdd";
+import TodoComplete from "./components/TodoComplete";
 import todoModel from "./model/todoModel";
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
         </Grid.Row>
         <Grid.Row>
           <TodoList />
+        </Grid.Row>
+        <Grid.Row>
+          <TodoComplete />
         </Grid.Row>
       </Grid>
     </div>
