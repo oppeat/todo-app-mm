@@ -1,11 +1,24 @@
-import { makeAutoObservable, action, observable } from "mobx";
-import { setTextRange } from "typescript";
+import { makeAutoObservable, action } from "mobx";
 
 interface Todo {
   id: number;
   text: string;
   done: boolean;
 }
+
+const editTextTodo = (todos: Todo[], id: number, text:string): void => {
+  let oldTodo = todos.find((todo) => todo.id === id)
+  if(oldTodo){
+    oldTodo.text = text
+  }
+};
+
+const changeStatusTodo = (todos: Todo[], id: number, status:boolean): void => {
+  let oldTodo = todos.find((todo) => todo.id === id)
+  if(oldTodo){
+    oldTodo.done = status
+  }
+};
 
 const removeTodo = (todos: Todo[], id: number): Todo[] =>
   todos.filter((todo) => todo.id !== id);
@@ -28,6 +41,14 @@ class Todos {
   }
   @action setNewTodo(val: string) {
     this.newTodo = val
+  }
+
+  editTextTodo(id: number,text:string) {
+    editTextTodo(this.todos, id, text);
+  }
+
+  changeStatusTodo(id: number,status:boolean) {
+    changeStatusTodo(this.todos, id, status);
   }
 
   removeTodo(id: number) {
