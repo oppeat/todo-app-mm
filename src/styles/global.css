@@ -1,0 +1,27 @@
+.ui.segment{
+    width: 50%;
+}
+
+.input-container{
+    width: 40%;
+    padding: 0 1em;
+}
+
+.input-inline-container{
+    width: 60%;
+    margin: 0 2em;
+}
+
+.ui.floating.label {
+    left: 0 !important;
+    right: 100% !important;
+}
+
+.ui.piled.segment, .ui.piled.segments {
+    margin: 1em 0 !important;
+}
+
+.add-btn{
+    padding: 0 1em !important;
+}
+
