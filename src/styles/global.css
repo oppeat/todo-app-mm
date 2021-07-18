@@ -1,9 +1,33 @@
+@media only screen and (min-width: 1200px){
+    .ui.container {
+        width: 50% !important;
+        margin-left: auto!important;
+        margin-right: auto!important;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+    .ui.container {
+        width: 55% !important;
+        margin-left: auto!important;
+        margin-right: auto!important;
+    }
+}
+
 .ui.segment{
-    width: 50%;
+    width: 90%;
+}
+
+.ui.raised.segment {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.ui.checkbox{
+    padding-top: 4px;
 }
 
 .input-container{
-    width: 40%;
+    width: 80%;
     padding: 0 1em;
 }
 

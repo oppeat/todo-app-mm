@@ -23,7 +23,7 @@ function CompleteListItems() {
             <Segment key={todo.id}>
               <Checkbox onClick={() => todoModel.updateTodo(todo.id, todo.title, !todo.done)} checked={todo.done} />
               <Input className="input-inline-container" value={todo.title} onChange={(evt) => updateTodo(todo.id, evt.target.value, todo.done)} />
-              <Button icon onClick={() => {
+              <Button icon color="red" onClick={() => {
                 todoModel.removeTodo(todo.id);
               }}><Icon name='trash alternate outline' /></Button>
             </Segment>
