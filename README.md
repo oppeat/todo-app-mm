@@ -10,9 +10,11 @@ https://github.com/annop-kongdeedai-caninnovation/caninnnovation-exam-todolist-a
 then follow instrictions to start json-server
 
 ### Setup
-1. Change value of `REACT_APP_API_ENDPOINT` to the port which `json-server` is running
-2. run command `yarn install`
-3. run command `yarn start`
+1. Clone this project
+2. Change value of `REACT_APP_API_ENDPOINT` to the port which `json-server` is running
+3. run command `cd path/to/project`
+4. run command `yarn install`
+5. run command `yarn start`
 
 
 ## Available Scripts
