@@ -1,6 +1,9 @@
 import { makeAutoObservable, action, computed } from "mobx";
 import axios from 'axios';
 
+let endpoint = process.env.REACT_APP_API_ENDPOINT;
+console.log(endpoint)
+
 interface Todo {
   id: number;
   title: string;
@@ -13,12 +16,12 @@ interface Todo {
 // DELETE /todolist/{id}
 
 const updateTodo = async (todos: Todo[], id: number, title:string,  done:boolean): Promise<Todo> => {
-  let res = await axios.put(`http://localhost:3600/todolist/${id}`, { title, done })
+  let res = await axios.put(`${endpoint}/todolist/${id}`, { title, done })
   return res.data
 };
 
 const removeTodo = async (todos: Todo[], id: number): Promise<Todo[]> => {
-  let res = await axios.delete(`http://localhost:3600/todolist/${id}`)
+  let res = await axios.delete(`${endpoint}/todolist/${id}`)
   if(res.status === 200){
     return todos.filter((todo) => todo.id !== id);
   }
@@ -26,7 +29,7 @@ const removeTodo = async (todos: Todo[], id: number): Promise<Todo[]> => {
 }
 
 const addTodo = async ( title: string): Promise<Todo[]> => {
-  let res = await axios.post(`http://localhost:3600/todolist`, { title })
+  let res = await axios.post(`${endpoint}/todolist`, { title })
   return res.data
 }
 
@@ -90,7 +93,7 @@ class Todos {
   }
 
   load() {
-    axios.get('http://localhost:3600/todolist')
+    axios.get(`${endpoint}/todolist`)
       .then((resp) => resp.data)
       .then((tds: Todo[]) => (this.setTodos(tds)));
   }
