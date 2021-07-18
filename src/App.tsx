@@ -13,9 +13,7 @@ import config from './config/particlesjs-config.json';
 function App() {
 
   const onLoad = () => {
-    todoModel.load(
-      "https://raw.githubusercontent.com/jherr/todos-four-ways/master/data/todos.json"
-    );
+    todoModel.load();
   };
 
   useEffect(() => {
